@@ -12,12 +12,15 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.domain.Page;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 import javax.validation.constraints.Positive;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @RestController
 @RequestMapping("/user")  //유저 관련 모든 페이지
@@ -26,10 +29,11 @@ import java.util.List;
 public class UserController {
 private final UserService userService;
 private final UserMapper mapper;
-
+//    private final BCryptPasswordEncoder bCryptPasswordEncoder;
     public UserController(UserService userService, UserMapper mapper) {
         this.userService = userService;
         this.mapper = mapper;
+//        this.bCryptPasswordEncoder = bCryptPasswordEncoder;
     }
 
 
@@ -46,14 +50,24 @@ private final UserMapper mapper;
 
     }
 
-    @PostMapping("/signup")  //회원 가입 , PostUser
-    public ResponseEntity signup(@Valid @RequestBody UserPostDto userDto){
-        User user =
-                userService.createUser(mapper.userPostDtoToUser(userDto));
-        return new ResponseEntity<>(
-                new SingleResponseDto<>(mapper.userToUserResponseDto(user)),
-                HttpStatus.CREATED);
-    }
+//    @PostMapping("/signup")  //회원 가입 , PostUser
+//    public ResponseEntity signup(@Valid @RequestBody UserPostDto userDto){
+//
+//        User user =
+//                userService.createUser(mapper.userPostDtoToUser(userDto));
+//        return new ResponseEntity<>(
+//                new SingleResponseDto<>(mapper.userToUserResponseDto(user)),
+//                HttpStatus.CREATED);
+//    }
+//        @PostMapping("/signup")  //회원 가입 , PostUser
+//    public ResponseEntity signup(@Valid @RequestBody User user){
+//        user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
+//        user.setRoles("ROLE_USER");
+//        userService.createUser(user);
+//            Map<String ,String > map = new HashMap<>();
+//            map.put("message","Success");
+//        return new ResponseEntity<>(map,HttpStatus.CREATED);
+//    }
 
     @GetMapping("/mypage/{user-id}")//회원 정보 조회
     public ResponseEntity getUser(

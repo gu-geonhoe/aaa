@@ -4,6 +4,7 @@ package com.example.apitest.Question.controller;
 import com.example.apitest.Question.dto.QuestionPatchDto;
 import com.example.apitest.Question.dto.QuestionPostDto;
 import com.example.apitest.Question.mapper.QuestionMapper;
+import com.example.apitest.Question.repository.QuestionRepository;
 import com.example.apitest.Question.service.QuestionService;
 import com.example.apitest.Question.entitiy.Question;
 import com.example.apitest.User.entity.User;
@@ -16,6 +17,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
+import javax.annotation.PostConstruct;
 import javax.validation.Valid;
 import javax.validation.constraints.Positive;
 import java.util.List;
@@ -47,7 +49,11 @@ public class QuestionController {
         //        new SingleResponseDto<>(mapper.questionToQuestionResponseDto(question)),
                 HttpStatus.CREATED);
     }
+
+
 */
+
+
 
     /*@PostMapping("/write/{user-id}") //글 작성 페이지에서 글 작성
     public ResponseEntity postQuestion(@PathVariable("user-id") long userId,

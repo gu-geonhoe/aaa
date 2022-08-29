@@ -62,11 +62,11 @@ public class Question extends Auditable {
  /*   @Column
     private char deletable;*/
 
-    /*public Question(long questionId,String questionTitle, String content){
-        this.questionId = questionId;
-        this.questionTitle = questionTitle;
-        this.content = content;
-    }*/
+//    public Question(long questionId,String questionTitle, String content){
+//        this.questionId = questionId;
+//        this.questionTitle = questionTitle;
+//        this.content = content;
+//    }
 
     public enum QuestionStatus {
         QUESTION_REQUEST(1, "질문 등록"),
